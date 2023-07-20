@@ -1,0 +1,17 @@
+<p-card *ngIf="news" [header]="news.title" [subheader]="news.description">
+  <ng-template pTemplate="header">
+    <img alt="Card" [src]="news.titleImageUrl" />
+  </ng-template>
+  <ng-template pTemplate="content">
+    <h3>Published date</h3>
+    <p>{{ news.publishedDate | date: "dd.MM.YYYY" }}</p>
+  </ng-template>
+  <ng-template pTemplate="footer" *ngIf="news.url">
+    <p-button
+      label="Detailed"
+      icon="pi pi-arrow-right"
+      iconPos="right"
+      (click)="showDetailedInfo()"
+    ></p-button>
+  </ng-template>
+</p-card>

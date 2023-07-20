@@ -1,0 +1,62 @@
+<div class="dialog">
+  <div
+    class="mode-create"
+    [formGroup]="form"
+    *ngIf="mode === DialogMode.CREATE"
+  >
+    <span class="p-float-label">
+      <input pInputText formControlName="title" />
+      <label>Title</label>
+    </span>
+    <span class="p-float-label">
+      <input pInputText formControlName="description" />
+      <label>Description</label>
+    </span>
+  </div>
+  <div class="image-container" *ngIf="mode === DialogMode.CREATE">
+    <img [src]="uploadImg" />
+  </div>
+  <div class="mode-view" *ngIf="news$ | async as news">
+    <div>
+      <h3>Title</h3>
+      <p>{{ news.title }}</p>
+      <img alt="Card" [src]="news.titleImageUrl" />
+    </div>
+    <div>
+      <h3>Published date</h3>
+      <p>{{ news.publishedDate | date: "dd.MM.YYYY" }}</p>
+    </div>
+    <div>
+      <h3>Description</h3>
+      <p>{{ news.description }}</p>
+    </div>
+    <div>
+      <h3>Category</h3>
+      <p>{{ news.categoryType }}</p>
+    </div>
+    <div>
+      <h3>Text</h3>
+      <p [innerHTML]="news.text"></p>
+    </div>
+  </div>
+  <div class="actions" *ngIf="mode === DialogMode.CREATE">
+    <p-fileUpload
+      #uploader
+      mode="basic"
+      chooseLabel="Attach image"
+      [maxFileSize]="100000"
+      name="imageFile"
+      (onSelect)="onSelect($event)"
+    ></p-fileUpload>
+    <p-button
+      icon="pi pi-times"
+      label="Remove image"
+      (click)="removeFile(uploader)"
+    ></p-button>
+    <p-button
+      label="Save"
+      icon="pi pi-save"
+      (click)="saveAndClose()"
+    ></p-button>
+  </div>
+</div>

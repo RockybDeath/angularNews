@@ -1,0 +1,22 @@
+.dialog{
+  width: 800px;
+  height: auto;
+}
+.mode-view, .mode-create, .image-container{
+  overflow: hidden;
+}
+.mode-create{
+  margin: 1.25rem 0 1rem 0;
+}
+.actions, .mode-create{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 900px) {
+  .dialog{
+    width: 60vw;
+  }
+}

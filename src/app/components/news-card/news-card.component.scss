@@ -1,0 +1,21 @@
+::ng-deep .p-card{
+  border-radius: 30px;
+  width: 360px;
+  height: 600px;
+}
+::ng-deep .p-card .p-card-subtitle{
+  overflow: hidden;
+  height: 100px;
+}
+::ng-deep .p-card-header img{
+  border-radius: 30px;
+}
+::ng-deep .p-card .p-card-content{
+  padding: 0;
+}
+p{
+  margin: 0
+}
+h3{
+  margin: 0;
+}

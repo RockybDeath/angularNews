@@ -1,0 +1,25 @@
+<div class="news-header">
+  <h1>Page of news</h1>
+</div>
+<div class="options">
+  <p-button label="Add news" (click)="createNews()"></p-button>
+  <span class="p-float-label">
+    <input type="number" pInputText [(ngModel)]="pageNumber" />
+    <label>PageNumber</label>
+  </span>
+  <span class="p-float-label">
+    <input type="number" pInputText [(ngModel)]="pageSize" />
+    <label>PageSize</label>
+  </span>
+  <p-button
+    label="Search news"
+    icon="pi pi-search"
+    (click)="searchNews()"
+  ></p-button>
+</div>
+<div class="news-list" *ngIf="news$ | async as httpNews">
+  <app-news-card
+    *ngFor="let news of httpNews.news"
+    [news]="news"
+  ></app-news-card>
+</div>
